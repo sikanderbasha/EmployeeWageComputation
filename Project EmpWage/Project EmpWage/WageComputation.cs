@@ -12,28 +12,37 @@ namespace Project_EmpWage
         const int Emp_Part_Time = 2;
         public int Wage_Per_Hours = 20;
         public int empHrs = 0;
+        public int Working_Days = 20;
+        public int Salary = 0;
+
 
         public void Attendance()
         {
-            Random random = new Random();
-            int empCheck = random.Next(0, 3);
-            switch (empCheck)
+            for (int day = 1; day <= Working_Days; day++)
             {
-                case Emp_Full_Time:
-                    empHrs = 8;
-                    break;
+                Random random = new Random();
+                int empCheck = random.Next(0, 3);
+                switch (empCheck)
+                {
+                    case Emp_Full_Time:
+                        empHrs = 8;
+                        break;
 
-                case Emp_Part_Time:
-                    empHrs = 4;
-                    break;
+                    case Emp_Part_Time:
+                        empHrs = 4;
+                        break;
 
-                default:
-                    empHrs = 0;
-                    break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+               
+           
+        int EmployeeWage = empHrs * Wage_Per_Hours;
+        Salary += EmployeeWage;
+                Console.WriteLine(EmployeeWage);
             }
-            int EmployeeWage = empHrs * Wage_Per_Hours;
-            Console.WriteLine(EmployeeWage);
-        }
+}
     }
 
 }
