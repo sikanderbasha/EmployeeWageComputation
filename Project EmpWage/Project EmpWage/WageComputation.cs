@@ -10,39 +10,37 @@ namespace Project_EmpWage
     {
         const int Emp_Full_Time = 1;
         const int Emp_Part_Time = 2;
-        public int Wage_Per_Hours = 20;
-        public int empHrs = 0;
-        public int Working_Days_Per_Month = 20;
-        public int Salary_Month = 100;
-        public int Working_Hours = 100;
+        public int Count_Work_Day = 20;
+        public int Emp_Per_Rate_Hour = 20;
+        public int Max_Hrs_Day_Month = 100;
         public int Working_Days = 0;
-
+        public int Full_Day=8;
+        public int Half_Day=4;
+        public int empHrs = 0;
+        public int EmployeeWage = 0;
+        public int EmpSalary;
         public void Attendance()
         {
-            while (empHrs < Working_Hours && Working_Days < Working_Days_Per_Month)
+            for (int i = 0; i < Count_Work_Day && this.empHrs <= Max_Hrs_Day_Month; i++)
             {
-                Working_Days++;
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
                     case Emp_Full_Time:
-                        empHrs = 8;
+                        empHrs += Full_Day;
                         break;
-
                     case Emp_Part_Time:
-                        empHrs = 4;
+                        empHrs += Half_Day;
                         break;
-
                     default:
                         empHrs = 0;
                         break;
                 }
-                Working_Hours += empHrs;
 
             }
-            int EmpSalary = Working_Hours + Wage_Per_Hours;
-            Console.WriteLine(EmpSalary);
+            this.EmployeeWage = empHrs * Emp_Per_Rate_Hour;
+            Console.WriteLine("Total Employee wage : " + this.EmployeeWage);
         }
     }
 
