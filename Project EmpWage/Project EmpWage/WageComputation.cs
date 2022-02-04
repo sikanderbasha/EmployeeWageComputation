@@ -18,7 +18,7 @@ namespace Project_EmpWage
         public int Half_Day=4;
         public int empHrs = 0;
         public int EmployeeWage = 0;
-        public int EmpSalary;
+       
         public void Attendance()
         {
             for (int i = 0; i < Count_Work_Day && this.empHrs <= Max_Hrs_Day_Month; i++)
@@ -37,7 +37,7 @@ namespace Project_EmpWage
                         empHrs = 0;
                         break;
                 }
-
+                EmployeeWage += empHrs;
             }
             this.EmployeeWage = empHrs * Emp_Per_Rate_Hour;
             Console.WriteLine("Total Employee wage : " + this.EmployeeWage);
